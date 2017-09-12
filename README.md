@@ -25,3 +25,5 @@ Parameters: See comments in the code for more details
 See demo.py for a simple example.
 
 See Power_Test_WHO.r for the R code for the WHO data experiment in Section 4.2. 
+
+Contact wgao9@illinois.edu
