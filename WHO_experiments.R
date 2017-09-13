@@ -68,7 +68,7 @@ myWHO_country_scatterplots <- function(var1,var2,bw){
 	
 	# Plot
 	plot.new()
-	title<-paste('WHO_figures/bw',bw,'_var1_',toString(var1),'_var2_',toString(var2),'.pdf',sep="")
+	title<-paste('bw',bw,'_var1_',toString(var1),'_var2_',toString(var2),'.pdf',sep="")
 	pdf(title)
 	
 	figtitle<-paste('HC:',round(val.HC, digits = 2), ' Cor:', round(val.cor, digits = 2),' dCor:',round(val.dcor, digits = 2),' mCor:',round(val.maxCor, digits = 2),' MIC:',round(val.mine, digits = 2), ' HCR:',round(val.HCR, digits = 2))
@@ -100,7 +100,7 @@ myWHO_country_scatterplots <- function(var1,var2,bw){
 	val.HCR[ind]=myHC(y,x,bw)
 	
 	# Plot
-	title<-paste('WHO_figures/bw',bw,'_var1_',toString(var1),'_var2_',toString(var2),'_without1country.pdf',sep="")
+	title<-paste('bw',bw,'_var1_',toString(var1),'_var2_',toString(var2),'_without1country.pdf',sep="")
 	plot.new()
 	pdf(title)
 	
@@ -131,7 +131,7 @@ myWHO_country_scatterplots <- function(var1,var2,bw){
 	
 	
 	# Plot
-	title<-paste('WHO_figures/bw',bw,'_var1_',toString(var1),'_var2_',toString(var2),'_without2countries.pdf',sep="")
+	title<-paste('bw',bw,'_var1_',toString(var1),'_var2_',toString(var2),'_without2countries.pdf',sep="")
 	plot.new()
 	pdf(title)
 	
@@ -142,7 +142,7 @@ myWHO_country_scatterplots <- function(var1,var2,bw){
 	return(paste(ct1,ct2))
 }
 
-###################################### MAIN 
+##############################    MAIN   ##############################
 # Compute Hypercontractivity and other correlation measures for 1600 pairs  
 # To run estimators, set Run_Estimator = True (takes ~ 40 min to run)
 # Otherwise, saved estimates WHO_cor_1600.RData will be loaded.
@@ -199,7 +199,7 @@ df2 = data.frame(val.HC,val.cor,z=c(0.91,0.99,0.99,0.94),w=c(0.42,0.95,0.05,0.05
 
 ggplot(df,aes(x=val.HC,y=val.cor))   + geom_point(color="blue") +xlab("Hypercontractivity")+ylab("Pearson") + ylim(0, 1) + xlim(0, 1) + coord_fixed()+ theme(axis.text=element_text(size=20),text = element_text(size=20))  + annotate("text", x=c(0.05,0.95,0.8,0.61), y=c(0.01,0.83,0.13,0.1)+c(0.18,0.15,0.15,0.15), label= c("B","C","E","F"), size=13)  + geom_segment(aes(x=z, y=w+v, xend=z, yend=w), data=df, arrow = arrow(length = unit(0.03, "npc")),size=1) + annotate("text", x=c(0.91,0.99,0.99,0.94), y=c(0.42,0.95,0.05,0.05)+c(0.18,-0.15,0.15,0.15), label= c("G","H","  I","J"), size=13)  + geom_segment(aes(x=z, y=w+v, xend=z, yend=w), data=df2, arrow = arrow(length = unit(0.03, "npc")),size=1)
 
-ggsave("WHO_figures/WHO_Cor_vs_HC.pdf")
+ggsave("WHO_Cor_vs_HC.pdf")
 
 dev.off()
 
@@ -212,7 +212,7 @@ df = data.frame(val.HC,val.mine,z=c(0.05,0.95,0.8,0.61),w=c(0.18,0.98,0.19,0.28)
 df2 = data.frame(val.HC,val.mine,z=c(0.91,0.99,0.99,0.94),w=c(0.29,0.21,0.26,0.21),v=c(0.1,0.1,-0.1,0.1))
 ggplot(df,aes(x=val.HC,y=val.mine))   + geom_point(color="blue") +xlab("Hypercontractivity")+ylab("MIC") + ylim(0, 1) + xlim(0, 1) + coord_fixed()+ theme(axis.text=element_text(size=20), text = element_text(size=20)) + geom_segment(aes(x=z, y=w-v, xend=z, yend=w), data=df, arrow = arrow(length = unit(0.03, "npc")),size=1) + annotate("text", x=c(0.05,0.95,0.8,0.61), y=c(0.18,0.98,0.19,0.28)-c(0.15,0.15,0.15,0.15), label= c("B","C","E","F"), size=13) + geom_segment(aes(x=z, y=w-v, xend=z, yend=w), data=df2, arrow = arrow(length = unit(0.03, "npc")),size=1) + annotate("text", x=c(0.91,0.99,0.99,0.94), y=c(0.29,0.21,0.26,0.21)-c(0.15,0.15,-0.15,0.15), label= c("G "," H"," I","J"), size=13)  
 
-ggsave("WHO_figures/WHO_MIC_vs_HC.pdf")
+ggsave("WHO_MIC_vs_HC.pdf")
 
 dev.off()
 
