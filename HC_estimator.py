@@ -14,8 +14,8 @@ def HC(x, y, bandwidth=1.06, n_trial = 10, n_iter=100, sigma = 0.1, eta = 0.1):
 		See section 3 of arxiv.org/abs/1709.03XXX for details
 
 		Input: 
-		--x: 2D list of size N*d_x (or 1D list of size N if d_x = 1)
-		--y: 2D list of size N*d_y (or 1D list of size N if d_y = 1)
+		--x: 2D array of size N*d_x (or 1D list of size N if d_x = 1)
+		--y: 2D array of size N*d_y (or 1D list of size N if d_y = 1)
 		
 		Output: 
 		--One scalar s(X;Y)
