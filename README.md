@@ -25,13 +25,11 @@ Parameters: See comments in the code for more details
 See demo.py for a simple example.
 
 
-**************** Edited from here **************** 
 See WHO_experiments.R for the R code for the WHO data experiment in Section 4.2. 
 
 WHO dataset and MIC estimator:
 
     WHO.csv, MINE.jar, MINE.r  downloaded from http://www.exploredata.net/
-**************** to here **************** 
 
 
 Contact wgao9@illinois.edu
